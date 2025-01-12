@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import GameOverModal from './GameOverModal'
 import Pipe from './Pipe'
+import Score from './Score'
 
 interface PipeData {
   x: number;
@@ -18,6 +19,7 @@ export default function Bird() {
   const [gameOver, setGameOver] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [pipes, setPipes] = useState<PipeData[]>([]);
+  const [score, setScore] = useState(0);
   const birdRef = useRef<HTMLDivElement>(null);
 
   const gravity = 5;
@@ -80,11 +82,12 @@ export default function Bird() {
       setPosition(prev => {
         const birdWidth = birdRef.current?.offsetWidth || 50;
         const birdHeight = birdRef.current?.offsetHeight || 50;
-
+           
         const newY = falling ? prev.y + gravity : prev.y;
 
         
         if (newY <= 0 || newY >= screenSize.height - birdHeight) {
+          
           setGameOver(true);
           return prev;
         }
@@ -112,10 +115,11 @@ export default function Bird() {
         });
 
         if (collision) {
+        
           setGameOver(true);
           return prev;
         }
-
+        
         return { ...prev, y: newY };
       });
 
@@ -137,8 +141,9 @@ export default function Bird() {
             topHeight,
             bottomHeight: availableHeight - topHeight,
           });
+          setScore(prevScore => prevScore + 0.5);
         }
-
+       
         return updatedPipes;
       });
     }, 30);
@@ -171,6 +176,7 @@ export default function Bird() {
 
   const restartGame = () => {
     setPosition({ x: 50, y: 200 });
+    setScore(0);
     setFalling(true);
     setGameOver(false);
     generatePipes();
@@ -222,7 +228,9 @@ export default function Bird() {
             }}
           />
         </div>
+        
       </div>
+      <Score score={score} />
       {gameOver && <GameOverModal onRestart={restartGame} />}
     </>
   );
