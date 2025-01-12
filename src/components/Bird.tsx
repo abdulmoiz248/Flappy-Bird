@@ -141,7 +141,7 @@ export default function Bird() {
             topHeight,
             bottomHeight: availableHeight - topHeight,
           });
-          setScore(prevScore => prevScore + 0.5);
+          setScore(prevScore => prevScore + 1);
         }
        
         return updatedPipes;
