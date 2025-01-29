@@ -1,39 +1,36 @@
-# Flappy Bird Game
+## Flappy-Bird
 
-A simple and fun game inspired by the classic Flappy Bird. Help the bird navigate through the pipes and earn points!
+This project is a recreation of the classic Flappy Bird game using Next.js. It features a simple and intuitive gameplay, with realistic physics and charming graphics.
 
-## How to Play
+### Installation
 
-- Click anywhere on the screen or press the `Space` or `Enter` key to make the bird jump.
-- Try to avoid hitting the pipes. The game ends if the bird collides with a pipe or falls out of the screen.
-- Earn points by passing through the pipes!
+1. Clone the repository: `git clone https://github.com/your_username/Flappy-Bird.git`
+2. Install dependencies: `npm install` (or `yarn`)
 
-## Game Logic
+### Usage
 
-The bird constantly falls due to gravity, and when the player clicks or presses a key, the bird jumps. The pipes move towards the bird and must be avoided by the player. Each time the bird successfully passes a pipe, the score increases.
+To run the game, execute the following command:
 
-The game has the following components:
+```
+npm run dev
+```
 
-- **Bird**: The player-controlled bird that jumps.
-- **Pipes**: Randomized pipes that move from right to left.
-- **Score**: The player earns points by passing through pipes.
-- **Game Over Modal**: The game ends when a collision occurs, and the player is given an option to restart.
+The game will open in your default browser.
 
-## Technologies Used
+### Contribution Guidelines
 
-- React
-- TypeScript
-- Next.js (for SSR support)
-- HTML5 Canvas (for custom rendering)
-- CSS (for basic styling)
-- Image assets (bird and background)
+We welcome contributions to this project. Please follow these guidelines when contributing:
 
-## Contributing
+- Create a new branch for your changes.
+- Write clear and concise commit messages.
+- Follow the coding style of the project.
+- Add tests for your changes.
+- Submit a pull request when your changes are ready for review.
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
-5. Push to your branch (`git push origin feature-branch`).
-6. Open a pull request.
+### License
 
+This project is licensed under the MIT License.
+
+### Acknowledgments
+
+This project is based on the [Next.js Flappy Bird Tutorial](https://blog.logrocket.com/how-to-build-a-flappy-bird-clone-with-next-js/).
